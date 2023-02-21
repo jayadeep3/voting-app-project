@@ -1,0 +1,23 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: redis-deployment
+    labels:
+      name: redis-deployment
+      author: jayadeep
+  spec:
+    replicas: 1
+    selector:
+      matchLabels:
+        name: redis-deployment
+    template:
+      metadata:
+        name: redis-pod
+        labels:
+          name: redis
+      spec:
+        containers:
+          - name: my-redis
+            image: redis
+...
